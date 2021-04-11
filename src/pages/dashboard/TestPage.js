@@ -1,7 +1,16 @@
 
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCashRegister, faChartLine, faCloudUploadAlt, faPlus, faRocket, faTasks, faUserShield } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCashRegister,
+  faChartLine,
+  faCheckDouble,
+  faCloudUploadAlt, faEyeSlash,
+  faPlus,
+  faRocket,
+  faTasks,
+  faUserShield
+} from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap';
 
 import {PageVisitsTable, RecentOrdersTable} from "../../components/Tables";
@@ -16,27 +25,14 @@ export default () => {
           </Dropdown.Toggle>
           <Dropdown.Menu className="dashboard-dropdown dropdown-menu-left mt-2">
             <Dropdown.Item className="fw-bold">
-              <FontAwesomeIcon icon={faTasks} className="me-2" /> 주문 접수
+              <FontAwesomeIcon icon={faCheckDouble} className="text-success me-2" style={{width: 20}} />주문 접수
             </Dropdown.Item>
             <Dropdown.Item className="fw-bold">
-              <FontAwesomeIcon icon={faCloudUploadAlt} className="me-2" /> 주문 정산에서 제외
+              <FontAwesomeIcon icon={faEyeSlash} className="text-danger me-2" style={{width: 20}} />주문 취소
             </Dropdown.Item>
-            <Dropdown.Item className="fw-bold">
-              <FontAwesomeIcon icon={faUserShield} className="me-2" /> Preview Security
-            </Dropdown.Item>
-
-            <Dropdown.Divider />
-
-            <Dropdown.Item className="fw-bold">
-              <FontAwesomeIcon icon={faRocket} className="text-danger me-2" /> Upgrade to Pro
-            </Dropdown.Item>
+            {/*<Dropdown.Divider />*/}
           </Dropdown.Menu>
         </Dropdown>
-
-        <ButtonGroup>
-          <Button variant="outline-primary" size="sm">Share</Button>
-          <Button variant="outline-primary" size="sm">Export</Button>
-        </ButtonGroup>
       </div>
 
       <Row>

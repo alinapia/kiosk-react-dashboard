@@ -11,6 +11,7 @@ import ItalyFlag from '../assets/img/flags/italy.svg';
 
 const orderMockupJsons = [{
     "_id": "TEST",
+    "order_number": 1234,
     "created_at": "20210406",
     "updated_at": "20210406",
     "confirmation_level": 0,

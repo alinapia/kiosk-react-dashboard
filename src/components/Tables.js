@@ -40,7 +40,7 @@ const ValueChange = ({ value, suffix }) => {
 export const RecentOrdersTable = () => {
 
     const TableRow = (props) => {
-        const { menus, confirmation_level, created_at, total_price } = props;
+        const { order_number, menus, confirmation_level, created_at, total_price } = props;
         const [showDefault, setShowDefault] = useState(false)
         let confirmation_badge;
         switch (confirmation_level) {
@@ -54,6 +54,7 @@ export const RecentOrdersTable = () => {
             <>
             <ShowDetailModal showDefault={showDefault} setShowDefault={setShowDefault} {...props} />
             <tr className="text-center" onClick={() => setShowDefault(true)}>
+                <td>{order_number}</td>
                 <th scope="row">{menus[0].name} 외 {menus.length} 건</th>
                 <td>{total_price}</td>
                 <td>{confirmation_badge}</td>
@@ -64,13 +65,16 @@ export const RecentOrdersTable = () => {
     };
 
     const ShowDetailModal = (props) => {
-        const {setShowDefault, showDefault, menus, approval_date, approval_number} = props
+        const {order_number, setShowDefault, showDefault, menus, approval_date, approval_number} = props
 
         return (
             <React.Fragment>
                 <Modal size="lg" as={Modal.Dialog} centered show={showDefault} onHide={() => setShowDefault(false)}>
                     <Modal.Header>
-                        <Modal.Title className="h6">{menus[0].name} 외 {menus.length} 건 상세 내역</Modal.Title>
+                        <Modal.Title className="d-flex flex-column">
+                            <h3>주문번호: {order_number}</h3>
+                            <h5>{menus[0].name} 외 {menus.length} 건 상세 내역</h5>
+                        </Modal.Title>
                         <Button variant="close" aria-label="Close" onClick={() => setShowDefault(false)} />
                     </Modal.Header>
                     <Modal.Body className="pb-0">
@@ -108,9 +112,9 @@ export const RecentOrdersTable = () => {
                             </tbody>
                         </Table>
                     </Modal.Body>
-                    <Modal.Footer>
+                    <Modal.Footer className="border-0">
                         <Button variant="outline-dark" onClick={() => setShowDefault(false)}>
-                            정산에서 제외
+                            주문 취소
                         </Button>
                         <Button variant="danger" onClick={() => setShowDefault(false)}>
                             주문 접수
@@ -128,14 +132,12 @@ export const RecentOrdersTable = () => {
                     <Col>
                         <h5>주문 내역</h5>
                     </Col>
-                    <Col className="text-end">
-                        <Button variant="secondary" size="sm">See all</Button>
-                    </Col>
                 </Row>
             </Card.Header>
             <Table hover bordered responsive className="align-items-center table-flush">
                 <thead className="thead-light">
                 <tr className="text-center">
+                    <th scope="col">주문번호</th>
                     <th scope="col">주문내용</th>
                     <th scope="col">주문가격</th>
                     <th scope="col">주문상태</th>
