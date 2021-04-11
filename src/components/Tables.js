@@ -1,7 +1,20 @@
 
 import React, {useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp, faArrowDown, faArrowUp, faEdit, faEllipsisH, faExternalLinkAlt, faEye, faTrashAlt, faCheckCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
+import {
+    faAngleDown,
+    faAngleUp,
+    faArrowDown,
+    faArrowUp,
+    faEdit,
+    faEllipsisH,
+    faExternalLinkAlt,
+    faEye,
+    faTrashAlt,
+    faCheckCircle,
+    faTimes,
+    faCommentDots, faPlus, faCheckDouble, faEyeSlash
+} from '@fortawesome/free-solid-svg-icons';
 import {
     Col,
     Row,
@@ -53,12 +66,16 @@ export const RecentOrdersTable = () => {
         return (
             <>
             <ShowDetailModal showDefault={showDefault} setShowDefault={setShowDefault} {...props} />
-            <tr className="text-center" onClick={() => setShowDefault(true)}>
-                <td>{order_number}</td>
-                <th scope="row">{menus[0].name} 외 {menus.length} 건</th>
-                <td>{total_price}</td>
-                <td>{confirmation_badge}</td>
-                <td>{created_at}</td>
+            <tr className="text-center">
+                <td><input name={"check_" + order_number} type="checkbox" /></td>
+                <td onClick={() => setShowDefault(true)} style={{cursor: "grab"}}>{order_number}</td>
+                <th onClick={() => setShowDefault(true)} style={{cursor: "grab"}} scope="row">{menus[0].name} 외 {menus.length} 건</th>
+                <td onClick={() => setShowDefault(true)} style={{cursor: "grab"}}>{total_price}</td>
+                <td onClick={() => setShowDefault(true)} style={{cursor: "grab"}}>{confirmation_badge}</td>
+                <td onClick={() => setShowDefault(true)} style={{cursor: "grab"}}>{created_at}</td>
+                <td onClick={() => setShowDefault(true)} style={{cursor: "grab"}}>
+                    <FontAwesomeIcon icon={faEllipsisH} />
+                </td>
             </tr>
             </>
         );
@@ -113,6 +130,9 @@ export const RecentOrdersTable = () => {
                         </Table>
                     </Modal.Body>
                     <Modal.Footer className="border-0">
+                        <Button variant="outline-info" onClick={() => setShowDefault(false)}>
+                            영수증 출력
+                        </Button>
                         <Button variant="outline-dark" onClick={() => setShowDefault(false)}>
                             주문 취소
                         </Button>
@@ -137,11 +157,13 @@ export const RecentOrdersTable = () => {
             <Table hover bordered responsive className="align-items-center table-flush">
                 <thead className="thead-light">
                 <tr className="text-center">
+                    <th scope="col">체크</th>
                     <th scope="col">주문번호</th>
                     <th scope="col">주문내용</th>
                     <th scope="col">주문가격</th>
                     <th scope="col">주문상태</th>
                     <th scope="col">주문날짜</th>
+                    <th scope="col">상세보기</th>
                 </tr>
                 </thead>
                 <tbody>

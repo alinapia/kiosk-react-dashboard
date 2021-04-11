@@ -5,19 +5,24 @@ import {
   faCashRegister,
   faChartLine,
   faCheckDouble,
-  faCloudUploadAlt, faEyeSlash,
+  faCloudUploadAlt, faEyeSlash, faHome,
   faPlus,
   faRocket,
   faTasks,
   faUserShield
 } from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap';
+import {Col, Row, Button, Dropdown, ButtonGroup, Breadcrumb} from '@themesberg/react-bootstrap';
 
-import {PageVisitsTable, RecentOrdersTable} from "../../components/Tables";
+import {PageVisitsTable, RecentOrdersTable} from "../components/Tables";
 
 export default () => {
   return (
-    <>
+    <div className="py-4">
+      <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
+        <Breadcrumb.Item><FontAwesomeIcon icon={faHome} /></Breadcrumb.Item>
+        <Breadcrumb.Item>대시보드</Breadcrumb.Item>
+        <Breadcrumb.Item active>주문</Breadcrumb.Item>
+      </Breadcrumb>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <Dropdown className="btn-toolbar">
           <Dropdown.Toggle as={Button} variant="primary" size="sm" className="me-2">
@@ -40,6 +45,6 @@ export default () => {
           <RecentOrdersTable />
         </Col>
       </Row>
-    </>
+    </div>
   );
 };

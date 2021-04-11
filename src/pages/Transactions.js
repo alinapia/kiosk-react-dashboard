@@ -12,11 +12,11 @@ export default () => {
         <div className="d-block mb-4 mb-md-0">
           <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
             <Breadcrumb.Item><FontAwesomeIcon icon={faHome} /></Breadcrumb.Item>
-            <Breadcrumb.Item>Volt</Breadcrumb.Item>
-            <Breadcrumb.Item active>Transactions</Breadcrumb.Item>
+            <Breadcrumb.Item>대시보드</Breadcrumb.Item>
+            <Breadcrumb.Item active>상세내역</Breadcrumb.Item>
           </Breadcrumb>
-          <h4>Transactions</h4>
-          <p className="mb-0">Your web analytics dashboard template.</p>
+          <h4>상세내역</h4>
+          <p className="mb-0">일자, 기간별, 기기별 상세내역 등을 제공합니다</p>
         </div>
         <div className="btn-toolbar mb-2 mb-md-0">
           <ButtonGroup>

@@ -3,9 +3,10 @@ import {Route, Switch, Redirect} from "react-router-dom";
 import {Routes} from "../routes";
 
 // pages
+import TestPage from "./Orders";
 import Presentation from "./Presentation";
 import Upgrade from "./Upgrade";
-import DashboardOverview from "./dashboard/DashboardOverview";
+import DashboardOverview from "./dashboard/Overview";
 import Transactions from "./Transactions";
 import Settings from "./Settings";
 import BootstrapTables from "./tables/BootstrapTables";
@@ -48,7 +49,6 @@ import Tables from "./components/Tables";
 import Tabs from "./components/Tabs";
 import Tooltips from "./components/Tooltips";
 import Toasts from "./components/Toasts";
-import TestPage from "./dashboard/TestPage";
 
 const RouteWithLoader = ({component: Component, ...rest}) => {
     const [loaded, setLoaded] = useState(false);

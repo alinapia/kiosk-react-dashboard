@@ -1,8 +1,17 @@
 
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCashRegister, faChartLine, faCloudUploadAlt, faPlus, faRocket, faTasks, faUserShield } from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap';
+import {
+  faCashRegister,
+  faChartLine,
+  faCloudUploadAlt,
+  faHome,
+  faPlus,
+  faRocket,
+  faTasks,
+  faUserShield
+} from '@fortawesome/free-solid-svg-icons';
+import {Col, Row, Button, Dropdown, ButtonGroup, Breadcrumb} from '@themesberg/react-bootstrap';
 
 import { CounterWidget, CircleChartWidget, BarChartWidget, TeamMembersWidget, ProgressTrackWidget, RankingWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../components/Widgets";
 import { PageVisitsTable } from "../../components/Tables";
@@ -11,7 +20,13 @@ import { trafficShares, totalOrders } from "../../data/charts";
 export default () => {
   return (
     <>
-      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+      <div className="pt-4">
+        <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
+          <Breadcrumb.Item><FontAwesomeIcon icon={faHome} /></Breadcrumb.Item>
+          <Breadcrumb.Item active>대시보드</Breadcrumb.Item>
+        </Breadcrumb>
+      </div>
+      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-4">
         <Dropdown className="btn-toolbar">
           <Dropdown.Toggle as={Button} variant="primary" size="sm" className="me-2">
             <FontAwesomeIcon icon={faPlus} className="me-2" />New Task

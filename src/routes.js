@@ -1,7 +1,7 @@
 
 export const Routes = {
     // custom
-    TestPage: { path: "/dashboard/test"},
+    TestPage: { path: "/dashboard/orders"},
 
     // pages
     Presentation: { path: "/" },
